@@ -16,14 +16,14 @@
     <script>
         const person1 = document.getElementById('person1');
         const person2 = document.getElementById('person2');
-        const button = document.getAnimations('btn');
+        const button = document.getElementById('btn');
         const code = document.getElementById('code');
 
         button.addEventListener('click',async()=>{
             code.innerText="Loading....";
             const res = await fetch(`/get?person1=${encodeURIComponent(person1.value)}&person2=${encodeURIComponent(person2.value)}`)
             const json=await res.json();
-            const innerText="\n"+JSON.stringify(json, null, 4);
+            code.innerText="\n"+JSON.stringify(json, null, 4);
         })
 
         
